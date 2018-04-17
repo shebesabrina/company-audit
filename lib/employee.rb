@@ -5,15 +5,7 @@ class Employee
     @employee_id = employee_id.to_i
     @name = name
     @role = role
-    @start_date = start_date_helper(start_date)
-    @end_date = end_date
+    @start_date = DateHandler.string_to_date(start_date)
+    @end_date = DateHandler.string_to_date(end_date)
   end
-
-  def start_date_helper(start_date)
-    date = Date.parse start_date
-    year = date.year
-    day = date.mon
-    month = date.mday
-    "#{year}-#{day}-#{month}"
-  end.to_i
 end
