@@ -15,6 +15,9 @@ class Company
         @file[:success] = true
         @file[:error] = nil
         @employees << Employee.new(data[0], data[1], data[2], data[3], data[4])
+      else
+        @file[:success] = false
+        @file[:error] = 'bad data'
       end
     end
     @file

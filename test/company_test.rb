@@ -24,4 +24,9 @@ class CompanyTest < Minitest::Test
     filename = './data/employees.csv'
     assert_equal ({:success=>true, :error=>nil}), company.load_file(filename)
   end
+
+  def test_it_can_determine_false_data
+    filename = './data/bad_employees.csv'
+    assert_equal ({:success=>false, :error=>'bad data'}), company.load_file(filename)
+  end
 end
