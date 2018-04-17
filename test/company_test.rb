@@ -22,6 +22,6 @@ class CompanyTest < Minitest::Test
 
   def test_it_can_add_data_to_array
     filename = './data/employees.csv'
-    assert_equal true, company.load_file(filename)
+    assert_equal ({:success=>true, :error=>nil}), company.load_file(filename)
   end
 end
