@@ -1,5 +1,6 @@
 require './test/test_helper'
 require './lib/company'
+require './lib/employee'
 require './modules/date_handler'
 require 'pry'
 
@@ -21,6 +22,6 @@ class CompanyTest < Minitest::Test
 
   def test_it_can_add_data_to_array
     filename = './data/employees.csv'
-    assert_equal false, company.load_bad_employees(filename)
+    assert_equal true, company.load_file(filename)
   end
 end

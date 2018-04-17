@@ -8,9 +8,16 @@ class Company
     @timesheets = []
   end
 
-  def load_bad_employees(filename)
-    CSV.foreach(filename, headers: true, header_converters: :symbol) do |row|
-      @file[row]
+  def load_file(filename)
+    CSV.foreach(filename, headers: false) do |data|
+      @file = {}
+      if data.count == 5
+        @file[:success] = true && @file[:error] = nil
+        @employees << Employee.new(data[0], data[1], data[2], data[3], data[4])
+        binding.pry
+      else
+        @file[:error] = true
+      end
     end
   end
 end
