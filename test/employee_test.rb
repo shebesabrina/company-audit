@@ -19,6 +19,7 @@ class EmployeeTest < Minitest::Test
 
   def test_attributes
     assert_equal 5, employee.employee_id
+    assert_equal Integer, employee.employee_id.class
     assert_equal 'Sally Jackson', employee.name
     assert_equal 'Engineer', employee.role
     assert_instance_of Date, employee.start_date
